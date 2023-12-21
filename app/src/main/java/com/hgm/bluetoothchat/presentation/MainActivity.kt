@@ -43,16 +43,6 @@ class MainActivity : ComponentActivity() {
 
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            //
-            ////在 Android 10 还需要开启 gps
-            //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            //      val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            //      if (!lm.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-            //            Toast.makeText(this@MainActivity, "请您先开启gps,否则蓝牙不可用", Toast.LENGTH_SHORT).show()
-            //      }
-            //}
-
-
             val enableBluetoothLauncher = registerForActivityResult(
                   ActivityResultContracts.StartActivityForResult()
             ) { /* Not needed */ }
@@ -76,6 +66,14 @@ class MainActivity : ComponentActivity() {
                         arrayOf(
                               Manifest.permission.BLUETOOTH_SCAN,
                               Manifest.permission.BLUETOOTH_CONNECT,
+                              Manifest.permission.BLUETOOTH_ADMIN,
+                              Manifest.permission.ACCESS_FINE_LOCATION,
+                              Manifest.permission.ACCESS_COARSE_LOCATION,
+                        )
+                  )
+            }else{
+                  permissionLauncher.launch(
+                        arrayOf(
                               Manifest.permission.BLUETOOTH_ADMIN,
                               Manifest.permission.ACCESS_FINE_LOCATION,
                               Manifest.permission.ACCESS_COARSE_LOCATION,
