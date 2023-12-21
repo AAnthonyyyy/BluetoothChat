@@ -9,7 +9,7 @@ import android.os.Build
 /**
  * @author：HGM
  * @created：2023/12/20 0020
- * @description：
+ * @description：发现设备接收器
  **/
 class FoundDeviceReceiver(
       private val onDeviceFound: (BluetoothDevice) -> Unit
