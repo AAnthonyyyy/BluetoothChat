@@ -71,7 +71,7 @@ class MainActivity : ComponentActivity() {
                               Manifest.permission.ACCESS_COARSE_LOCATION,
                         )
                   )
-            }else{
+            } else {
                   permissionLauncher.launch(
                         arrayOf(
                               Manifest.permission.BLUETOOTH_ADMIN,
